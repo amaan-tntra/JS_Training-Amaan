@@ -9,7 +9,6 @@ const students = [
 const average = students.reduce((acc, item) => {
   return acc + item.score / students.length;
 }, 0);
-console.log("Average Score:", average);
 
 //Function to calculate highest and lowest score
 function highlow(students) {
@@ -21,10 +20,6 @@ function highlow(students) {
   });
   return { highest, lowest };
 }
-
-let { highest, lowest } = highlow(students);
-console.log(`Highest score: ${highest.name} (${highest.score})`);
-console.log(`Lowest score: ${lowest.name} (${lowest.score})`);
 
 //Function to count of students in each grade category
 function gradeDistribution(students) {
@@ -47,8 +42,6 @@ function gradeDistribution(students) {
 
   return grades;
 }
-let obj1 = gradeDistribution(students);
-console.log("Grade Distribution: ",obj1);
 
 // Function to list students who need to retake the exam
 function retakeStudents() {
@@ -60,4 +53,12 @@ function retakeStudents() {
   });
   return failed;
 }
+
+let { highest, lowest } = highlow(students);
+let grades = gradeDistribution(students);
+
+console.log("Average Score:", average);
+console.log(`Highest score: ${highest.name} (${highest.score})`);
+console.log(`Lowest score: ${lowest.name} (${lowest.score})`);
+console.log("Grade Distribution: ",grades);
 console.log("Students needing retake: ",retakeStudents(students));
